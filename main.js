@@ -33,3 +33,22 @@ function agregarAlCarrito(id){
     mostrarCarrito()
     mostrarMensaje`(${producto.nombre} ha sido agregado al carrito.)`;
 }
+
+function mostrarCarrito(){
+    const listaCarrito= document.getElementById('listaCarrito');
+    const total= document.getElementById('total');
+    listaCarrito.innerHTML="";
+
+    carrito.forEach((producto, index)=>{
+        const li=document.createElement('li');
+        li.textContent= `${producto.nombre} - $${producto.precio}`;
+        const button=document.createElement('button');
+        button.addEventListener('click', ()=> eliminarDelCarrito(index));
+        li.appendChild(button);
+        listaCarrito.appendChild(li);
+    })
+
+    const totalPrecio=carrito.reduce((acc, producto) => acc+ producto.precio, 0);
+    total.textContent= `$${totalPrecio}`;
+}
+
