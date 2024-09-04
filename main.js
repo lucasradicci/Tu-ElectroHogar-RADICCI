@@ -8,4 +8,4 @@ const productos = [
     { id: 4, nombre: 'Televisor', precio: 1000 }
 ];
 
-
+let carrito= JSON.parse(localStorage.getItem('carrito'))
