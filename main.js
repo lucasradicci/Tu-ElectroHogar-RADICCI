@@ -8,6 +8,8 @@ const productos = [
     
 ];
 
+
+
 let carrito= JSON.parse(localStorage.getItem('carrito')) ||[];
 
 function mostrarProductos(){
@@ -23,4 +25,11 @@ function mostrarProductos(){
         li.appendChild(li); 
     })
 }
-mostrarProductos()
+
+function agregarAlCarrito(id){
+    const producto=productos.find(p => p.id=== id);
+    carrito.push(producto);
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+    mostrarCarrito()
+    mostrarMensaje`(${producto.nombre} ha sido agregado al carrito.)`;
+}
