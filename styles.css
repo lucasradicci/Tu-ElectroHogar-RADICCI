@@ -1,6 +1,6 @@
 
-header{
-    background-color: beige;
+body{
+    background-color: orange;
 }
 h1{
     color: blue;
@@ -10,9 +10,14 @@ h2{
     color: red;
 }
 
+button{
+    background-color:green;
+    color: white;
+}
 .oculto{
     display: none;
 }
 .visible{
     display: block;
 }
+
