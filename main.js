@@ -22,7 +22,8 @@ function mostrarProductos(){
         const button= document.createElement('button');
         button.textContent='Agregar al Carrito';
         button.addEventListener('click', ()=> agregarAlCarrito(producto.id));
-        li.appendChild(li); 
+        li.appendChild(button);
+        listaProductos.appendChild(li); 
     })
 }
 
@@ -43,6 +44,7 @@ function mostrarCarrito(){
         const li=document.createElement('li');
         li.textContent= `${producto.nombre} - $${producto.precio}`;
         const button=document.createElement('button');
+        button.textContent='Eliminar';
         button.addEventListener('click', ()=> eliminarDelCarrito(index));
         li.appendChild(button);
         listaCarrito.appendChild(li);
@@ -57,5 +59,19 @@ function eliminarDelCarrito(index){
     localStorage.setItem('carrito', JSON.stringify(carrito));
     mostrarCarrito();
     mostrarMensaje(`${productoEliminado.nombre} ha sido eliminado del carrito.`);
+
+}
+
+function mostrarMensaje(mensaje){
+    const mensajeDiv= document.getElementById('mensaje');
+    mensajeDiv.textContent= mensaje;
+    mensajeDiv.classList.remove('oculto');
+    mensajeDiv.classList.add('visible');
+
+    setTimeout(() =>{
+        mensajeDiv.classList.remove('visible');
+        mensajeDiv.classList.add('oculto');
+    }, 3000)
+
 
 }
