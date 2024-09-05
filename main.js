@@ -52,3 +52,10 @@ function mostrarCarrito(){
     total.textContent= `$${totalPrecio}`;
 }
 
+function eliminarDelCarrito(index){
+    const productoEliminado= carrito.splice(index,1)[0];
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+    mostrarCarrito();
+    mostrarMensaje(`${productoEliminado.nombre} ha sido eliminado del carrito.`);
+
+}
