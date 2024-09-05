@@ -9,3 +9,10 @@ h1{
 h2{
     color: red;
 }
+
+.oculto{
+    display: none;
+}
+.visible{
+    display: block;
+}
